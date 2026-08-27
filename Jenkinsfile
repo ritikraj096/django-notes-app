@@ -5,14 +5,17 @@ pipeline{
     stages{
         stage("Code clone"){
             steps{
-                sh "whoami"
-            clone("https://github.com/ritikraj096/django-notes-app","main")
+                script{
+                    clone("https://github.com/ritikraj096/django-notes-app","main")
+                }
             }
         }
         stage("Code Build"){
             steps{
-            hello()
-            dockerbuild("notes-app","latest")
+                script{
+                    hello()
+                    dockerbuild("notes-app","latest")
+                }
             }
         }
     
