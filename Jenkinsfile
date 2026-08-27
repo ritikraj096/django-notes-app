@@ -11,6 +11,7 @@ pipeline{
         }
         stage("Code Build"){
             steps{
+            hello()
             dockerbuild("notes-app","latest")
             }
         }
